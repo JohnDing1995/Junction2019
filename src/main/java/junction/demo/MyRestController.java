@@ -24,17 +24,19 @@ public class MyRestController {
 
     @GetMapping("/active")
     public String isUploadingOpen() {
+        System.out.println("RECEIVED: ACTIVE");
         return imageService.getActive().toString();
     }
 
     @PostMapping("/drawings")
     public ResponseEntity uploadDrawings(@RequestBody String base64) throws UnsupportedEncodingException {
 
-        //fix URL decoding
-        String s = base64.replace("data%3Aimage%2Fpng%3Bbase64%2C", "data:image/png;base64,")
-                .replace("%2F", "/");
+        System.out.println("RECEIVED:" + base64);
 
-        imageService.addImage(s);
+        //fix URL decoding
+        String s = base64.replace("%2F", "/");
+
+        imageService.addImage("data:image/png;base64,"+s);
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
 }
