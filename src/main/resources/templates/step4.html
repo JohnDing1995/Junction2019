@@ -1,24 +1,26 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
+    <link href='https://fonts.googleapis.com/css?family=Wellfleet' rel='stylesheet'>
     <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <title>Chabbit</title>
 </head>
 <body>
-<nav class="navbar navbar-dark" style="background-color: #FCF1D6;">
-    <img src="img/logo.png" height="50" class="d-inline-block align-top" alt="">
+<nav class="navbar navbar-dark" style="background-color: #FCF1D6;">    <a href="/start"> <img src="/img/logo.png" height="50" class="d-inline-block align-top" alt=""></a>
 </nav>
-<div class="card-group">
-    <div class="card" th:each="image : ${images}">
-        <div class="card-body">
-            <img  th:src="${image}" />
+<div class="center-item text-center">
+    <div class="card-group">
+        <div class="card" th:each="image : ${images}">
+            <div class="card-body">
+                <img th:src="${image}" />
+            </div>
         </div>
     </div>
+    <form th:action="'/'+${ses}+'/step5'" method="get">
+        <button type="submit"  style="font-family: Wellfleet" class="btn btn-outline-primary custom-btn btn-lg">Continue</button>
+    </form>
 </div>
 
-<form th:action="'/'+${ses}+'/step5'" method="get">
-    <button type="submit" class="btn btn-outline-primary btn-lg col-md-4 offset-md-4 custom-btn">Continue</button>
-</form>
 </body>
 </html>

@@ -1,23 +1,24 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
+    <link href='https://fonts.googleapis.com/css?family=Wellfleet' rel='stylesheet'>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="/css/style.css">
     <title>Chabbit</title>
 </head>
 <body>
 <nav class="navbar navbar-dark" style="background-color: #FCF1D6;">
-    <img src="img/logo.png" height="50" class="d-inline-block align-top" alt="">
+    <img src="/img/logo.png" height="50" class="d-inline-block align-top" alt="">
 </nav>
 
 <div class="center-item text-center">
-    <h1 class="text-center display-4">Welcome to Chabbit</h1>
+    <h1 class="text-center display-4" style="font-family: Wellfleet">Welcome to Chabbit</h1>
 
     <h1 th:inline="text"> Session: [[${ses}]]</h1>
     <img height="100" src="img/ears.png" alt="image">
     <br>
     <form th:action="${ses}+'/step2'" method="get">
-        <button type="submit" class="btn btn-outline-primary btn-lg col-md-4 custom-btn">Start</button>
+        <button type="submit" class="btn btn-outline-primary btn-lg col-md-4 custom-btn" style="font-family: Wellfleet">START</button>
     </form>
 </div>
 </body>
