@@ -2,17 +2,23 @@
 <html xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-<link rel="stylesheet" href="/css/style.css">
+<link rel="stylesheet" href="css/style.css">
     <title>Chabbit</title>
 </head>
 <body>
+<nav class="navbar navbar-dark" style="background-color: #FCF1D6;">
+    <img src="img/logo.png" height="50" class="d-inline-block align-top" alt="">
+</nav>
 
-<h1 th:inline="text"> Session: [[${ses}]]</h1>
+<div class="center-item text-center">
+    <h1 class="text-center display-4">Welcome to Chabbit</h1>
 
-<img src="/img/ears.jpg" class="w-10 rounded mx-auto d-block" alt="image">
-<form th:action="${ses}+'/step2'" method="get" class="center-item w-100 h-25">
-        <button type="submit" class="col-md-4 h-100 offset-md-4 btn btn-primary custom-btn btn-lg">Start</button>
+    <h1 th:inline="text"> Session: [[${ses}]]</h1>
+    <img height="100" src="img/ears.png" alt="image">
+    <br>
+    <form th:action="${ses}+'/step2'" method="get">
+        <button type="submit" class="btn btn-outline-primary btn-lg col-md-4 custom-btn">Start</button>
     </form>
-
+</div>
 </body>
 </html>
