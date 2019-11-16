@@ -32,7 +32,7 @@ public class MyRestController {
 
         //fix URL decoding
         String s = base64.replace("data%3Aimage%2Fpng%3Bbase64%2C", "data:image/png;base64,")
-                .replace("%2", "/");
+                .replace("%2F", "/");
 
         imageService.addImage(s);
         return new ResponseEntity<>(HttpStatus.CREATED);

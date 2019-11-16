@@ -1,13 +1,16 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="/css/style.css">
     <title>Chabbit</title>
 </head>
 <body>
-<img src="img/ears.jpg" class="w-10 rounded mx-auto d-block" alt="image">
-<form action="/step2" method="get" class="center-item w-100 h-25">
+
+<h1 th:inline="text"> Session: [[${ses}]]</h1>
+
+<img src="/img/ears.jpg" class="w-10 rounded mx-auto d-block" alt="image">
+<form th:action="${ses}+'/step2'" method="get" class="center-item w-100 h-25">
         <button type="submit" class="col-md-4 h-100 offset-md-4 btn btn-primary custom-btn btn-lg">Start</button>
     </form>
 
