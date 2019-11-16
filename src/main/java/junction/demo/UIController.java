@@ -36,4 +36,10 @@ public class UIController {
         model.addAttribute("images", imageService.getImages());
         return "step4";
     }
+
+    @GetMapping("/step5")
+    public String show5(Model model) {
+        imageService.activate();
+        return "step5";
+    }
 }
