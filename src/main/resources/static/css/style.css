@@ -1,0 +1,23 @@
+.center-item{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+
+    font-size: 20px;
+    padding: 5px;
+    z-index: 100;
+
+
+}
+button.next{
+    width: 20%;
+}
+.custom-btn {
+    background-color: #5B6BFD;
+    border-color: #5B6BFD;
+}
