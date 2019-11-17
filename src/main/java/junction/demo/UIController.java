@@ -32,23 +32,23 @@ public class UIController {
 
     @GetMapping("/{sessionId}/step3")
     public String show3(@PathVariable String sessionId, Model model) {
-        imageService.activate();
+        imageService.activate(sessionId);
         model.addAttribute(SESSION, sessionId);
         return "step3";
     }
 
     @GetMapping("/{sessionId}/step4")
     public String show4(@PathVariable String sessionId, Model model) {
-        imageService.deactivate();
+        imageService.deactivate(sessionId);
         model.addAttribute(SESSION, sessionId);
-        model.addAttribute("images", imageService.getImages());
+        model.addAttribute("images", imageService.getImages(sessionId));
         return "step4";
     }
 
     @GetMapping("/{sessionId}/step5")
     public String show5(@PathVariable String sessionId, Model model) {
         model.addAttribute(SESSION, sessionId);
-        imageService.activate();
+        imageService.activate(sessionId);
         return "step5";
     }
 }
