@@ -27,6 +27,7 @@ dependencies:
   image_gallery_saver: ^1.1.0
   screenshot: ^0.1.1
   dio: ^3.0.4
+  toast: ^0.1.5
   http:
 dev_dependencies:
   flutter_test:

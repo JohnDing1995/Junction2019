@@ -5,6 +5,7 @@ import 'dart:typed_data';
 import 'package:flutter/material.dart';
 import 'package:flutter_colorpicker/flutter_colorpicker.dart';
 import 'package:screenshot/screenshot.dart';
+import 'package:toast/toast.dart';
 import 'package:dio/dio.dart';
 import 'package:http/http.dart' as http;
 
@@ -43,7 +44,7 @@ class _DrawState extends State<Draw> {
             padding: const EdgeInsets.only(left: 8.0, right: 8.0),
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(50.0),
-                color: Colors.blueAccent),
+                color: Colors.greenAccent),
             child: Padding(
               padding: const EdgeInsets.all(8.0),
               child: Column(
@@ -89,25 +90,10 @@ class _DrawState extends State<Draw> {
                           }),
                       IconButton(
                         icon: Icon(Icons.done),
-                        onPressed: () async {
-                          _imageFile = null;
-                          screenshotController
-                              .capture()
-                              .then((File image) async {
-                            //print("Capture Done");
-                            setState(() {
-                              _imageFile = image;
-                            });
-                            FormData formdata = FormData.fromMap({
-                              "file": MultipartFile.fromFileSync(image.path,
-                                  filename: "file")
-                            });
-                            var photo = base64Encode(image.readAsBytesSync());
-                            await http.post('https://chabbit.nonnenmacher.dev/drawings',
-                                body: photo);
-                          }).catchError((onError) {
-                            print(onError);
-                          });
+                        onPressed: ()
+                        {
+                          Toast.show("Sended!", context, duration: Toast.LENGTH_SHORT, gravity:  Toast.BOTTOM);
+                          sendData(context);
                         },
                       ),
                     ],
@@ -250,6 +236,26 @@ class _DrawState extends State<Draw> {
       ),
     );
   }
+    void sendData(BuildContext context) {
+    _imageFile = null;
+    screenshotController
+        .capture()
+        .then((File image) async {
+    //print("Capture Done");
+    setState(() {
+    _imageFile = image;
+    });
+    FormData formdata = FormData.fromMap({
+    "file": MultipartFile.fromFileSync(image.path,
+    filename: "file")
+    });
+    var photo = base64Encode(image.readAsBytesSync());
+    await http.post('https://chabbit.nonnenmacher.dev/drawings',
+    body: photo);
+    }).catchError((onError) {
+    print(onError);
+    });
+    }
 }
 
 class DrawingPainter extends CustomPainter {
