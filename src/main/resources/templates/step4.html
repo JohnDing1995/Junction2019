@@ -13,7 +13,7 @@
     <div class="card-group">
         <div class="card" th:each="image : ${images}">
             <div class="card-body">
-                <img th:src="${image}" />
+                <img th:src="${image}"  max-height="150" class="img-fluid" />
             </div>
         </div>
     </div>
