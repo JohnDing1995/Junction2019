@@ -17,8 +17,10 @@
 button.next{
     width: 20%;
 }
-.center { margin: 0 auto; width: 400px; }
+.center { margin: 0 auto; width: 1000px; }
+
 button.custom-btn {
     background-color: #FCF1D6;
     border-color: #FCF1D6;
+    margin-top: 20px;
 }
