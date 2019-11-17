@@ -48,6 +48,10 @@ public class ImageService {
         saveSession(session);
     }
 
+    public void deleteSession(String sessionId) {
+        sessions.remove(sessionId);
+    }
+
     static class Session {
 
         private final String sessionId;

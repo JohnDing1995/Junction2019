@@ -20,7 +20,8 @@ public class UIController {
 
     @GetMapping({"", "/start"})
     public String show1(Model model) {
-        model.addAttribute(SESSION, Math.abs(RAND.nextInt()) % 1000);
+//        model.addAttribute(SESSION, Math.abs(RAND.nextInt()) % 1000);
+        model.addAttribute(SESSION, "439");
         return "step1";
     }
 

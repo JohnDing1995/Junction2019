@@ -18,7 +18,7 @@ public class MyRestController {
 
     @GetMapping("/active")
     public String isUploadingOpen() {
-        return isUploadingOpen("123");
+        return isUploadingOpen("439");
     }
 
     @GetMapping("/{sessionId}/active")
@@ -29,7 +29,7 @@ public class MyRestController {
 
     @PostMapping("/drawings")
     public ResponseEntity uploadDrawings(@RequestBody String base64) throws UnsupportedEncodingException {
-        return uploadDrawings("123", base64);
+        return uploadDrawings("439", base64);
     }
 
     @PostMapping("/{sessionId}/drawings")
@@ -42,5 +42,10 @@ public class MyRestController {
 
         imageService.addImage(sessionId, s);
         return new ResponseEntity<>(HttpStatus.CREATED);
+    }
+
+    @GetMapping("/delete")
+    public void deleteSession(){
+        imageService.deleteSession("439");
     }
 }
